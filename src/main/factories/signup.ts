@@ -15,6 +15,6 @@ export const makeSignUpController = (): Controller => {
   const emailValidator = new EmailValidatorAdapter()
 
   const signUpController = new SignUpController(emailValidator, dbAddAccount)
-  const logErrorRepository = new LogMongoRepository()
-  return new LogControllerDecorator(signUpController, logErrorRepository)
+  const logMongoRepository = new LogMongoRepository()
+  return new LogControllerDecorator(signUpController, logMongoRepository)
 }
